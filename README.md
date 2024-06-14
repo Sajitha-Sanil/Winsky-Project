@@ -19,7 +19,7 @@ Set up Django environment variables and database configurations.
 Run migrations: python manage.py migrate
 Create a superuser: python manage.py createsuperuser
 Start the development server: python manage.py runserver
-Access the admin panel at http://localhost:8000/admin to manage tour packages.
+Access the admin panel at http://localhost:8000/dashboard to manage tour packages.
 
 
 
