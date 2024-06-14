@@ -554,7 +554,7 @@ def create_package(request):
             return redirect(create_package)
 
         except Exception as e:
-            messages.error(request, f"An error occurred: {str(e)}")
+            #messages.error(request, f"An error occurred: {str(e)}")
             return redirect(create_package)
 
     obj = GeneralContent.objects.all()
