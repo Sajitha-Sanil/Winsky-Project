@@ -1,0 +1,161 @@
+{% extends 'index.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+
+
+
+ {% block content %}
+ <style>
+    .rating {
+font-size: 24px;
+cursor: pointer;
+}
+
+.fa-star, .far.fa-star {
+color: gray; /* Empty star color */
+}
+
+.fa-star {
+color: gold; /* Filled star color */
+}
+
+
+ </style>
+
+    <!-- BreadCrumb Starts -->  
+    <section class="breadcrumb-main pb-25 pt-25" style="background-image: url({{dir}}assets/images/inner-banner.jpg);">
+        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url({{dir}}assets/images/shape8.png);"></div>
+        <div class="breadcrumb-outer">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="mb-3">Our Packages</h1>
+                    <p class="pt-1 white">Embark on Unforgettable Adventures with Our Exclusive Travel Packages.</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="dot-overlay"></div>
+    </section>
+    <!-- BreadCrumb Ends --> 
+    <section class="trending pt-6 pb-0 bg-lgrey">
+        {% for package in packages %}
+        <div class="container">
+         
+            <div class="row">
+                <h2 class="mb-1">{{ package.name }}</h2>
+                <p class="pt-1 pb-3">{{ package.description }}</p>
+            </div>
+            
+            
+            <div class="row">
+                {% for addpackage in addpackages %}
+                {% if addpackage.package == package %} {# Only show addpackages for the current package #}
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item box-shadow rounded bg-white">
+                        <div class="trend-image position-relative">
+                            {% if addpackage.image %}
+                            <img src="{{ addpackage.image.url }}" alt="image">
+                            {% else %}
+							<p>No image available</p>
+							{% endif %} 
+                            <div class="package-price">
+                                <h6>
+                                    <span>{{ addpackage.rate }}</span> / per person
+                                </h6>
+                            </div>
+                            
+                            <div class="share-icon">
+                                <a href="{% url 'productdetails' slug=addpackage.slug %}" class="link copy-link">
+                                    <i class="far fa-copy white mr-" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="message-box" id="messageBox">
+                                Copied to clipboard!
+                            </div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2">
+                                <div class="package-meta text-center">
+                                    <ul>
+                                        <li>
+                                            <i class="far fa-calendar"></i>
+                                            {{ addpackage.days }}D/{{ addpackage.nights }}N
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-user-friends"></i>
+                                            People: {{ addpackage.people }}
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            {{ addpackage.country }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="mb-1"><a href="#">{{ addpackage.image_caption }}</a></h3>
+                            <div class="rating-main d-flex align-items-center pb-2">
+                                <div class="rating">
+                                    <span class="fa fa-star checked" value="1"></span>
+                                    <span class="fa fa-star checked" value="2"></span>
+                                    <span class="fa fa-star checked" value="3"></span>
+                                    <span class="fa fa-star checked" value="4"></span>
+                                    <span class="fa fa-star checked" value="5"></span>
+                                </div>
+                                <span class="ms-2">(38)</span>
+                            </div>
+                            <p>{{addpackage.image_description}}</p>
+                            <div class="entry-meta">
+                                <div class="btn-wrap">
+                                    <a href="{% url 'productdetails' slug=addpackage.slug %}" class="button-text width-12 text-right">Book Now<i class="fas fa-arrow-right"></i></a>
+                                   
+                                 </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                        
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+        </div>
+    </section>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('.rating').each(function() {
+        const ratingDiv = $(this);
+        const stars = ratingDiv.find('.fa-star');
+    
+        stars.click(function() {
+          const value = parseInt($(this).attr('value'));
+    
+          // Remove "fa" and "far" classes from stars within the same div
+          stars.removeClass('fa');
+          stars.removeClass('far');
+    
+          // Add appropriate classes based on clicked star within the same div
+          for (let i = 1; i <= value; i++) {
+            ratingDiv.find(`.fa-star[value="${i}"]`).addClass('fa');
+          }
+    
+          // Add "far" class to stars after the clicked one within the same div
+          for (let i = value + 1; i <= 5; i++) {
+            ratingDiv.find(`.fa-star[value="${i}"]`).addClass('far');
+          }
+        });
+      });
+    });
+    </script>
+    
+   
+  
+
+   {% endblock %}

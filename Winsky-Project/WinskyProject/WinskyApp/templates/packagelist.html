@@ -1,0 +1,221 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %} 
+<!-- End Sidebar Modal -->
+<style>
+  /* Styles for lock icons */
+  .lock-icon {
+      font-size: 25px; /* Adjust the font size as per your preference */
+      color: #555; /* Set the icon color */
+  }
+
+
+  /* Styles for the anchor tags */
+  .lock-toggle {
+      display: inline-block;
+      padding: 5px; /* Add some padding for better clickability */
+      color: #007bff; /* Set the link color */
+      transition: color 0.3s; /* Add a smooth color transition */
+  }
+
+  .lock-toggle:hover {
+      color: #0056b3; /* Change the link color on hover */
+      text-decoration: none; /* Remove underline on hover */
+  }
+</style>
+<div class="dashboard-innerbox">
+    <div class="inner-page-sec"> 
+      <div class="description-sec">
+        <h2>Packages List</h2>
+        <div class="d-flex justify-content-end">
+          <a href="{% url 'addpackage' %}" class="btn btn-primary mb-5">Add Package</a>
+      </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="inner-card">
+              <div class="inner-card-body">
+                <div class="table-responsive theme-scrollbar">
+                  <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
+                    <thead class="text-center">
+                      <tr role="row">
+                        
+                        <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:15%;" >Package Name: </th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:45%;" >Package Description:</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:10%;" >Show Packages at Home Page:</th>
+                        <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:25%;">Action:</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {% for packages in page_obj %}
+                           
+                      <tr role="row" class="odd">
+                       
+                        <td class="sorting_1">{{ packages.name }}</td>
+                        <td class="sorting_1">{{ packages.description }}</td>
+                        <td>
+                          <span class="lockContainer">
+                              {% if packages.is_active %}
+                              <a href="{% url 'tour_toggle_package' id=packages.id %}" class="lock-toggle">
+                                  <i class="bx bx-toggle-right lock-icon text-success"></i>
+                              </a>
+                              {% else %}
+                              <a href="{% url 'tour_toggle_package' id=packages.id %}" class="lock-toggle">
+                                  <i class="bx bx-toggle-left lock-icon text-danger"></i>
+                              </a>
+                              {% endif %}
+                          </span>
+                      </td>
+                        
+                        
+                      
+                        <td>
+                          <ul class="action">
+                           
+                            <li class="edit"><a href="{% url 'update_package' slug=packages.slug %}" data-bs-original-title="" title=""><i class='bx bx-edit'></i></a></li>
+                            <li class="delete"> <a href="#" data-toggle="modal" data-target="#deleteModal{{ packages.id }}"><i class='bx bx-trash'></i></a></li>
+                            
+                          </ul>
+                        </td>
+                      </tr>
+                     
+  
+                      <!-- Delete Modal -->
+                        <!-- Delete Modal -->
+                <div class="modal fade" id="deleteModal{{ packages.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                          
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to delete this item?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <a href="{% url 'delete_package' slug=packages.slug %}" class="btn btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                {% if page_obj.paginator.num_pages > 1 %}
+                <div class="pagination-container">
+                    <div class="pagination mb-4">
+                        {% if page_obj.has_previous %}
+                            <a class="pagination-link" href="?page={{ page_obj.previous_page_number }}">«</a>
+                        {% else %}
+                            <span class="disabled">«</span>
+                        {% endif %}
+                        
+                        {% for i in page_obj.paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <a class="pagination-link active" href="?page={{ i }}">{{ i }}</a>
+                            {% else %}
+                                {% if i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+                                    <a class="pagination-link" href="?page={{ i }}">{{ i }}</a>
+                                {% elif i == page_obj.number|add:'-3' or i == page_obj.number|add:'3' %}
+                                    <span class="disabled">...</span>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <a class="pagination-link" href="?page={{ page_obj.next_page_number }}">»</a>
+                        {% else %}
+                            <span class="disabled">»</span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+            
+                  </div>
+              </div>
+              
+              <style>
+                  .pagination-container {
+                      text-align: right;
+                  }
+              
+                  .pagination {
+                      display: inline-block;
+                      margin-top: 10px; /* Adjust this value as needed */
+                  }
+              
+                  .pagination-link {
+                      display: inline-block;
+                      padding: 5px 10px;
+                      margin: 0 2px;
+                      color: #333;
+                      text-decoration: none;
+                      border: 1px solid #ccc;
+                      border-radius: 4px;
+                      transition: background-color 0.2s ease;
+                  }
+              
+                  .pagination-link:hover {
+                      background-color: #91c4fa;
+                  }
+              
+                  .pagination-link.active {
+                      background-color: #007bff;
+                      color: #fff;
+                      border: 1px solid #007bff;
+                  }
+              
+                  .disabled {
+                      color: #999;
+                  }
+              </style>
+              
+              
+       
+              
+  
+            </div>
+          </div>
+        </div>
+      
+  
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+         <!-- Repeat the above code for each additional collapsed navbar, changing the data-target and form content as needed. -->
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -
+ End Sidebar Modal -->
+<style>
+  .pagination-container {
+      text-align: right;
+  }
+
+  .pagination {
+      display: inline-block;
+      margin-top: 10px; /* Adjust this value as needed */
+  }
+
+  .pagination-link {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 0 2px;
+      color: #333;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+  }
+
+  .pagination-link:hover {
+      background-color: #91c4fa;
+  }
+
+  .pagination-link.active {
+      background-color: #007bff;
+      color: #fff;
+      border: 1px solid #007bff;
+  }
+
+  .disabled {
+      color: #999;
+  }
+</style>
+<div class="dashboard-innerbox">
+  <div class="inner-page-sec">
+    <div class="description-sec">
+      <h2>Customer Enquiries</h2>
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="inner-card">
+            <div class="inner-card-body">
+              <div class="table-responsive theme-scrollbar">
+                <table class="display dataTable" id="data-source-1" style="width: 100%;" role="grid" aria-describedby="data-source-1_info">
+                  <thead class="text-center">
+                    <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:15%;" >First Name:</th>
+                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:15%;">Last Name:</th>
+                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:20%;">Phone:</th>
+                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:30%;">Message:</th>
+                      <th class="sorting" tabindex="0" aria-controls="data-source-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:20%;">Received at:</th>
+                    
+                    </tr>
+                  </thead>
+                  <tbody class=" text-center">
+                      {% for contact in page_obj %}
+                    <tr role="row" class="odd">
+                      <td class="sorting_1">{{ contact.firstname }}</td>
+                      <td>{{ contact.lastname}}</td>
+                      <td>{{ contact.phone}}</td>
+                      <td>{{ contact.message}}</td>
+                      <td>{{ contact.created_at}}</td>
+                    
+                   
+                    </tr>
+                    {% endfor %} 
+                  </tbody>
+                </table>
+              </div>
+              {% if page_obj.paginator.num_pages > 1 %}
+              <div class="pagination-container">
+                  <div class="pagination mb-4">
+                      {% if page_obj.has_previous %}
+                          <a class="pagination-link" href="?page={{ page_obj.previous_page_number }}">«</a>
+                      {% else %}
+                          <span class="disabled">«</span>
+                      {% endif %}
+                      
+                      {% for i in page_obj.paginator.page_range %}
+                          {% if page_obj.number == i %}
+                              <a class="pagination-link active" href="?page={{ i }}">{{ i }}</a>
+                          {% else %}
+                              {% if i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+                                  <a class="pagination-link" href="?page={{ i }}">{{ i }}</a>
+                              {% elif i == page_obj.number|add:'-3' or i == page_obj.number|add:'3' %}
+                                  <span class="disabled">...</span>
+                              {% endif %}
+                          {% endif %}
+                      {% endfor %}
+                      
+                      {% if page_obj.has_next %}
+                          <a class="pagination-link" href="?page={{ page_obj.next_page_number }}">»</a>
+                      {% else %}
+                          <span class="disabled">»</span>
+                      {% endif %}
+                  </div>
+              </div>
+          {% endif %}
+          
+                
+                </div>
+              </div>
+              
+          
+          
+            </div>
+          </div>
+
+                        <div class="row bg-row">
+                            <div class="col-md-5 col-lg-5 pocket-help">
+                                <h2>Ask pocket Friendly for Help 24/7</h2>
+                                <h6>Get In Touch : </h6>
+                              
+                                <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                   </div>
+                                </div>
+                        </div>
+                        </div>
+      </div>
+</div>
+</section>
+
+		<!-- End Sign In Area -->
+         <!-- Repeat the above code for each additional collapsed navbar, changing the data-target and form content as needed. -->
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

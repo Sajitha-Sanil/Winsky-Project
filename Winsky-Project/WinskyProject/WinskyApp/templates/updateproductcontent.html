@@ -1,0 +1,272 @@
+{% extends 'aboutuspagecontent.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>Update Product </h2>
+                                <div class="row">
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                      {% if message.tags == 'success' %}
+                                        <div class="alert alert-success" role="alert">
+                                          {{ message }}
+                                        </div>
+                                      {% elif message.tags == 'error' %}
+                                        <div class="alert alert-danger" role="alert">
+                                          {{ message }}
+                                        </div>
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% endif %}
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                            
+                                                  
+                                                    <form id="form4"method="post" enctype="multipart/form-data" action="{% url 'update_product' slug=product.slug %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Sub-Category:</label>
+                                                                <select class="form-control" id="subcategory" required name="subcategory">
+                                                                    <option value="">{{ product.subcategory }}</option>
+                                                                    {% for subcategory in subcategories %}
+                                                                    {% if subcategory.category.is_active %}
+                                                                        <option value="{{ subcategory.id }}" {% if product.subcategory == subcategory %}selected{% endif %}>
+                                                                            {{ subcategory.name }}
+                                                                        </option>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                                  </select>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                         
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Title:</label>
+                                                                <input type="text" class="form-control" required id="product-title" name="title" value="{{product.title}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Model:</label>
+                                                                <input type="text" class="form-control" id="product-model" name="model_name" value="{{product.model_name}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Watts:</label>
+                                                                <input type="text" class="form-control" id="watts" name="watts" value="{{product.watts}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">CCT:</label>
+                                                                <input type="text" class="form-control" id="cct" name="cct" value="{{product.cct}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Dimmable System:</label>
+                                                                <input type="text" class="form-control" id="dimmable-system" name="dimmable_system" value="{{product.dimmable_system}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Lumen Efficiency:</label>
+                                                                <input type="text" class="form-control" id="lumen-efficiency" name="lumen_efficiency" value="{{product.lumen_efficiency}}">
+                                                            </div>
+                                                              </div>
+                                                            </div>
+                            
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Fixing:</label>
+                                                                <input type="text" class="form-control" id="Fixing" name="fixing" value="{{product.fixing}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">LED Source:</label>
+                                                                <input type="text" class="form-control" id="led-source" name="led_source" value="{{product.led_source}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">IP Rating:</label>
+                                                                <input type="text" class="form-control" id="ip-rating" name="ip_rating" value="{{product.ip_rating}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Life Span:</label>
+                                                                <input type="text" class="form-control" id="life-span" name="life_span" value="{{product.life_span}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Description:</label>
+                                                                <textarea class="form-control" rows="6" id="product-description" name="product_description">{{product.product_description}}</textarea>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Product Main Carousel Image:</label><br>
+                                                                <p class="text-warning">Please use images with the same resolution (in pixels) to achieve a visually appealing carousel view.</p>
+                                                               
+                                                                <input type="file" id="image-input" name="image1[]" class="form-control" multiple>
+                                                                <div id="selected-images" class="dropdown mt-3 mb-3">
+                                                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="selected-images-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Selected Images
+                                                                  </button>
+                                                                  <div class="dropdown-menu" aria-labelledby="selected-images-dropdown">
+                                                                    <div id="selected-images-list">
+                                                                      {% for image in product.image1.all %}
+                                                                        <p class="mx-3">{{ image.file.name }}</p>
+                                                                      {% endfor %}
+                                                                    </div>
+                                                              </div>
+                                                            </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Main Image/Display Image 1:</label><br>
+                                                                <input type="file" class="form-control form-control-file" id="displayimage1" name="displayimage1" >
+                                                                <p >Currently chosen File: <span class="text-info">{{ product.displayimage1 }}</span></p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Display Image 2:</label><br>
+                                                                <input type="file" class="form-control form-control-file" id="displayimage2" name="displayimage2" >
+                        <p >Currently chosen File: <span class="text-info">{{ product.displayimage2 }}</span></p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Display Image 3:</label><br>
+                                                                <input type="file" class="form-control form-control-file" id="displayimage3" name="displayimage3" >
+                                                                <p >Currently chosen File: <span class="text-info">{{ product.displayimage3 }}</span></p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Data Sheet:</label><br>
+                                                                <input type="file" class="form-control form-control-file" id="data_sheet" name="data_sheet" accept=".pdf" >
+                                                                <p >Currently chosen File: <span class="text-info">{{ product.data_sheet }}</span></p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">LDT file:</label><br>
+                                                                <input type="file" class="form-control form-control-file" id="ldf_file" name="ldf_file" accept=".ldf" >
+                                                                <p >Currently chosen File: <span class="text-info">{{ product.ldf_file }}</span></p>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary mx-3" type="submit" >Update</a>
+                                                            </div></div>
+                                                        </div>
+                                                      </form>
+   </div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row bg-row">
+                                      <div class="col-md-5 col-lg-5 pocket-help">
+                                          <h2>Ask pocket Friendly for Help 24/7</h2>
+                                          <h6>Get In Touch : </h6>
+                                        
+                                          <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                             </div>
+                                          </div>
+                                  </div>
+                                  </div>
+                            
+                
+                     
+                </div>
+                </div>
+        </div>
+      </section>
+                                  
+
+ <!-- Repeat the above code for each additional collapsed navbar, changing the data-target and form content as needed. -->
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+ const dropArea = document.getElementById('drop-area');
+const imageInput = document.getElementById('image-input');
+const selectedImagesList = document.getElementById('selected-images-list');
+
+dropArea.addEventListener('click', () => {
+  imageInput.click(); // Simulate a click on the file input element
+});
+
+imageInput.addEventListener('change', (event) => {
+  selectedImagesList.innerHTML = ''; // Clear previous selected images
+
+  const files = event.target.files;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const imageName = document.createElement('p');
+    imageName.textContent = file.name;
+    imageName.classList.add('mx-3'); // Add the class 'mx-3' to the element
+    selectedImagesList.appendChild(imageName);
+  }
+});
+
+
+  </script>
+{% endblock %}

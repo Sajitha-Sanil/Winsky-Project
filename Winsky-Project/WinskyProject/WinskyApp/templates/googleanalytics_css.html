@@ -1,0 +1,124 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>  Google Analytics Code/ CSS & JS</h2>
+                                {% if messages %}
+                                {% for message in messages %}
+                                  {% if message.tags == 'success' %}
+                                    <div class="alert alert-success" role="alert">
+                                      {{ message }}
+                                    </div>
+                                  {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger" role="alert">
+                                      {{ message }}
+                                    </div>
+                                  {% endif %}
+                                {% endfor %}
+                              {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>  Google Analytics Code</h5>
+                                                   
+                                                    <form id="form1" method="post" enctype="multipart/form-data" action="{% url 'update_google_analytics' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteNameInput">Google Analytics Code</label>
+                                                                <textarea class="form-control" id="googleAnalyticsCode" rows="11" name="googleanalyticscode" >{{ general_content.googleanalyticscode }}</textarea>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                                <div class="container-fluid">
+                                                                    <p>Do you have a Google Analytic Code?
+                                                                      <a href="https://analytics.google.com/analytics/web/" class="fw-bold" target="_blank">Create a code now</a>
+                                                                    </p>
+                                                                  </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row ">
+                                                            <div class="col-sm-12 text-end ">
+                                                                <button class="btn btn-secondary mt-2" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>  Extra Assets For Style & JS</h5>
+                                                    <form id="form3" method="post" enctype="multipart/form-data" action="{% url 'update_style' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                            <div class="row"> 
+                                                                <div class="col-sm-12">
+                                                                  <div class="mb-3">
+                                                                    <label for="siteDescriptionInput">Assets in site header section (like CSS).<span class="text-warning">You don't need to include a style tag, only the CSS content is required</span></label>
+                                                                    <textarea class="form-control" id="cssInput" rows="4" name="cssinput" >{{general_content.cssinput}}</textarea>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          
+                                                              <div class="row"> 
+                                                                <div class="col-sm-12">
+                                                                  <div class="mb-3">
+                                                                    <label for="siteDescriptionInput">Assets in site footer section (like JS).<span class="text-warning">You don't need to include a script tag, only the Js content is required</span></label>
+                                                                    <textarea class="form-control" id="jsInput" name="jsinput" rows="4" >{{general_content.jsinput}}</textarea>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                         
+                                                          <div class="row ">
+                                                            <div class="col-sm-12 text-end ">
+                                                                <button class="btn btn-secondary mt-2" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+
+        {% endblock %}

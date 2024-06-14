@@ -1,0 +1,436 @@
+{% load static %}
+{% get_static_prefix as dir %}
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/bootstrap.min.css"> 
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{{dir}}adminassets/css/owl.carousel.min.css">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/magnific-popup.min.css">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/animate.min.css">
+        <!-- Boxicons CSS --> 
+        <link rel="stylesheet" href="{{dir}}adminassets/css/boxicons.min.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/fonts/flaticon.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/meanmenu.min.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/responsive.css">
+        <!-- Theme Dark CSS -->
+        <link rel="stylesheet" href="{{dir}}adminassets/css/theme-dark.css">
+
+        <!-- Title -->
+        <title>{{obj.0.sitename}}</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{dir}}assets/images/favicon.ico">
+    </head>
+
+    <body>
+
+        <!-- Start Preloader -->
+        <div class="preloader">
+            <div class="preloader-wave"></div>
+        </div>
+        <!-- End Preloader -->
+
+
+      
+
+        <!-- Start Sign In Area -->
+		<section class="sign-in-area ptb-50">
+			<div class="container">
+              <div class="dashboard-bgarea">
+                <div class="dashboard-innerbox">
+                    <div class="row">
+                        
+  
+                        <div class="col-lg-12">
+                               <!-- ======= Sidebar ======= -->
+   <div class="other-side">
+    
+
+    <div class="modal-menu">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#myModal2">
+            <i class="flaticon-menu"></i>
+        </a>
+    </div>
+</div>
+
+ 
+ <!-- Start Sidebar Modal -->
+ <div class="sidebar-modal">  
+    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            <i class="bx bx-x"></i>
+                        </span>
+                    </button>
+                    <h2 class="modal-title" id="myModalLabel2">
+                        <a href="index.html">
+                            <img src="{{dir}}adminassets/img/logo.png" class="modal-logo1" alt="Logo">
+                        </a>
+                    </h2>
+                </div>
+                
+                <div class="modal-body" id="navbarSupportedContent">
+                    <nav class="sidebar card py-2 mb-4">
+                        <ul class="nav-links">
+                            <li>
+                              <a href="{% url 'dashboard' %}">
+                                <i class='bx bx-grid-alt' ></i>
+                                <span class="link_name">Dashboard</span>
+                              </a>
+                             
+                            </li>
+                            <li>
+                              <div class="iocn-link">
+                                <a href="#">
+                                  <i class='bx bx-collection' ></i>
+                                  <span class="link_name">Core Content</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow' ></i>
+                              </div>
+                              <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Category</a></li>
+                                <li><a href="{% url 'site_logo_favicon' %}">Primary Info / Logo & Favicon </a></li>
+                                <li><a href="{% url 'site_address_info' %}">Site Address Info </a></li>
+                                <li><a href="{% url 'contact_emails'%}">Site Emails / Contact Deatils </a></li>
+                                <li><a href="{% url 'update_seotags' %}">Social Media Links / Meta Tages</a></li>
+                                <li><a href="{% url 'update_google_analytics' %}">Google Analytics Code / CSS & Js</a></li>
+                              </ul>
+                            </li>
+                      <!--      <li>
+                              <div class="iocn-link">
+                                <a href="#">
+                                  <i class='bx bx-book-alt' ></i>
+                                  <span class="link_name">Page Content</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow' ></i>
+                              </div>
+                              <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Posts</a></li>
+                                <li><a href="#">Carousel</a></li>
+                                <li><a href="#">Home Page</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Sustainability Page</a></li>
+                                <li><a href="#">Blog Page</a></li>
+                                <li><a href="#">Download Page</a></li>
+                                <li><a href="#">Contact Page</a></li>
+                               
+                              </ul>
+                            </li>-->
+                        
+                          
+                            <li>
+                              <div class="iocn-link">
+                                <a href="#">
+                                  <i class='bx bx-plug' ></i>
+                                  <span class="link_name">Packages</span>
+                                </a>
+                                <i class='bx bxs-chevron-down arrow' ></i>
+                              </div>
+                              <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Plugins</a></li>
+                                <li><a href="{% url 'addpackage' %}">Add Package Category</a></li>
+                                <li><a href="{% url 'create_package' %}">Add Package</a></li>
+                                <li><a href="{% url 'create_package_list' %}">All Packages </a></li>
+                              
+                              </ul>
+                            </li>
+                         <!-- <li>
+                                <div class="iocn-link">
+                                  <a href="#">
+                                    <i class='bx bx-compass' ></i>
+                                    <span class="link_name">Product</span>
+                                  </a>
+                                  <i class='bx bxs-chevron-down arrow' ></i>
+                                </div>
+                                <ul class="sub-menu">
+                                  <li><a class="link_name" href="#">Plugins</a></li>
+                                  <li><a href="#">All Products</a></li>
+                                  <li><a href="#">Add Product</a></li>
+                                  
+                                
+                                </ul>
+                              </li>-->
+                             <!-- <li>
+                                <div class="iocn-link">
+                                  <a href="#">
+                                    <i class='bx bx-compass' ></i>
+                                    <span class="link_name">Blog</span>
+                                  </a>
+                                  <i class='bx bxs-chevron-down arrow' ></i>
+                                </div>
+                                <ul class="sub-menu">
+                                  <li><a class="link_name" href="#">Plugins</a></li>
+                                  <li><a href="#">All Blogs</a></li>
+                                  <li><a href="#">Add Blog</a></li>
+                                  
+                                
+                                </ul>
+                              </li>-->
+                            <li>
+                              <a href="{%url 'contact_us_list'%}">
+                                <i class='bx bx-history'></i>
+                                <span class="link_name">Customer Enquiries</span>
+                              </a>
+                            
+                            </li>
+                        
+                      </ul>
+                        </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar Modal -->
+
+{% block content %}
+
+  <!-- End Sidebar-->
+                            <div class="time-date-main">
+                              
+                           <p><span class="icon"><i class='bx bx-time-five'></i>{% now "h.i A" %}</span> <span class="icon"><i class='bx bx-calendar'></i>{% now "F j, Y" %}</span>  </p>
+                            </div>
+                            <div class="profile-sec">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="nav-author__info">
+                                            <div class="author-img">
+                                            <img src="{{obj.0.sitelogo.url}}" alt="" class="rounded-circle">
+                                            </div>
+                                            <div class="author-info">
+                                            <h6>Welcome</h6>
+                                            <span>{{user.username}}</span>
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="sign-out-btn text-right">
+                                            <a href="{% url 'register' %}"> <button class="default-btn sign-btn" type="submit">Sign In</button></a>
+                                            <a href="{% url 'logout' %}"> <button class="default-btn sign-btn" type="submit">Sign Out
+                                               
+                                            </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                                <div class="row mt-2">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" >
+                                                <div class="card">
+                                                    <a href="{% url 'package_list'%}" target="_blank">
+                                                    <div class="card-body rounded gradient-1">
+                                                        <div class="media  align-items-center">
+                                                            <img class="mr-3 mt-2" src="{{dir}}adminassets/img/dashborad-icon/1.png" alt="">
+                                                            <div class="media-body pl-3">
+                                                              <h2>{{package_count}}</h2>
+                                                                <h6 class="text-uppercase text-white">Package Category List</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" >
+                                                <div class="card">
+                                                    <a href="{% url 'create_package_list' %}" target="_blank">
+                                                    <div class="card-body rounded gradient-2">
+                                                        <div class="media  align-items-center">
+                                                            <img class="mr-3 mt-2" src="{{dir}}adminassets/img/dashborad-icon/2.png" alt="">
+                                                            <div class="media-body pl-3">
+                                                                <h2>{{total_count}}</h2>
+                                                                <h6 class="text-uppercase text-white">Packages List</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12" >
+                                                <div class="card">
+                                                    <a href="{% url 'contact_us_list'%}" target="_blank">
+                                                    <div class="card-body rounded gradient-3">
+                                                        <div class="media  align-items-center">
+                                                            <img class="mr-3 mt-2" src="{{dir}}adminassets/img/dashborad-icon/3.png" alt="">
+                                                            <div class="media-body pl-3">
+                                                                <h2>{{contact}}</h2>
+                                                                <h6 class="text-uppercase text-white">Customer Enquiry List</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask Pocket Friendly For Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                  
+                                   
+
+                                  
+                                
+                                </div>
+
+                          </div>
+
+                          
+              </div>
+                   </div>
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+        {% endblock %}
+        <footer id="footer" class="footer-area-bg">
+  
+
+            <div class="footer-area-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-single">
+                                <div class="footer-single-content">
+                                    <a href="#">
+                                        <img src="{{dir}}adminassets/img/footer-logo.png" alt="Logo">
+                                    </a>
+                                    <div class="share-icon">
+                                        <img src="{{dir}}adminassets/img/share-icon.png">
+                                    </div>
+                                   
+                                </div>
+          
+                              
+                            </div>
+                        </div>
+          
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-list ml-50">
+                                <h3>About Us</h3>
+                              <p>POCKET FRIENDLY delivers comprehensive, professional one-page websites for businesses of all sizes at an affordable cost.</p>
+                              <p class="pt-30 ">Affordable website solutions for startups, small businesses, and enterprises. Tailored to meet specific needs, expand online presence, and foster customer engagement. Transparent pricing, no hidden fees.</p>
+          
+                            </div>
+                        </div>
+          
+                        <div class="col-lg-2 col-md-6">
+                            <div class="footer-list">
+                                <h3>Quick Links</h3>
+                                <ul>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">SEO</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">Terms & Condition</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">Privacy & Policy</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-chevron-right'></i>
+                                        <a href="#">Careers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+          
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-list ml-20">
+                                <h3>Contact Us</h3>
+                                <ul>
+                                    <li>
+                                        <i class='bx bxs-map'></i>
+                                          Sharjah, UAE
+                                    </li>
+                                    <li>
+                                        <i class='bx bxs-phone'></i>
+                                        <a href="tel:+971 585893348">+971 585893348</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bx-envelope'></i>
+                                        <a href="mailto:info@pocketfriendlyweb.com">info@pocketfriendlyweb.com</a>
+                                    </li>
+                                  
+                                    
+                                </ul>
+          
+                                
+                            </div>
+                        </div>
+                        <div class="copyright-text">
+                            <p>
+                                © Copyright by PocketFriendlyWeb | <script>document.write(new Date().getFullYear())</script>  
+                             
+                            </p>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+          
+            
+          </footer>
+          <!-- Footer Area End -->
+          
+          
+          <!-- Jquery Min JS -->
+          <script src="{{dir}}adminassets/js/jquery.min.js"></script>
+          <!-- Bootstrap Bundle Min JS -->
+          <script src="{{dir}}adminassets/js/bootstrap.bundle.min.js"></script>
+          <!-- Meanmenu JS -->
+          <script src="{{dir}}adminassets/js/meanmenu.min.js"></script>
+          <!-- Owl Carousel JS -->
+          <script src="{{dir}}adminassets/js/owl.carousel.min.js"></script>
+          <!-- Magnific Popup JS -->
+          <script src="{{dir}}adminassets/js/jquery.magnific-popup.min.js"></script>
+          <!-- Wow JS -->
+          <script src="{{dir}}adminassets/js/wow.min.js"></script>
+          <!-- Ajaxchimp Min JS -->
+          <script src="{{dir}}adminassets/js/jquery.ajaxchimp.min.js"></script>
+          <!-- Form Validator Min JS -->
+          <script src="{{dir}}adminassets/js/form-validator.min.js"></script>
+          <!-- Contact Form JS -->
+          <script src="{{dir}}adminassets/js/contact-form-script.js"></script>
+          <!-- Custom JS -->
+          <script src="{{dir}}adminassets/js/custom.js"></script>
+          </body>
+          </html>

@@ -1,0 +1,149 @@
+{% extends 'index.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+
+
+
+ {% block content %}
+
+    <!-- BreadCrumb Starts -->  
+    <section class="breadcrumb-main pb-25 pt-25" style="background-image: url({{dir}}assets/images/inner-banner.jpg);">
+        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url({{dir}}assets/images/shape8.png);"></div>
+        <div class="breadcrumb-outer">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="mb-3">Contact Us</h1>
+                    <p class="pt-1 white">Thank you for considering Winsky Travels for your travel adventures! We're here to assist you with any questions, bookings, or travel inquiries you may have.</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="dot-overlay"></div>
+    </section>
+    <!-- BreadCrumb Ends --> 
+
+     <!-- contact starts -->
+     <section class="contact-main bg-white pt-6 pb-60">
+        <div class="container">
+            <div class="contact-info-main mt-0">
+                <div class="row">
+                    <div class="col-lg-10 col-offset-lg-1 mx-auto">
+                        <div class="contact-info ">
+                            <div class="contact-info-title text-center mb-4 px-5">
+                                <h3 class="mb-1 ">Get in Touch</h3>
+                                <p class="mb-0 ">Feel free to reach out to us using the contact form below. We're always excited to help you plan your dream vacation, answer your questions, or provide any travel assistance you need.</p>
+                            </div>
+                            <div class="contact-info-content row mb-1">
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="info-item bg-lgrey px-4 py-5 border-all text-center rounded">
+                                        <div class="info-icon mb-2">
+                                            <i class="fa fa-map-marker-alt theme"></i>
+                                        </div>
+                                        <div class="info-content">
+                                            <h3>Office Location</h3>
+                                            <p class="m-0"> {{obj.0.address1}} {{obj.0.address2}}</p>
+                                            <p class="m-0"> {{obj.0.city}} {{obj.0.country}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="info-item bg-lgrey px-4 py-5 border-all text-center rounded">
+                                        <div class="info-icon mb-2">
+                                            <i class="fa fa-phone theme"></i>
+                                        </div>
+                                        <div class="info-content">
+                                            <h3>Phone Number</h3>
+                                            <p class="m-0">{{obj.0.primarycontactnumber}}</p>
+                                            <p class="m-0">{{obj.0.secondarycontactnumber}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 mb-4">
+                                    <div class="info-item bg-lgrey px-4 py-5 border-all text-center rounded">
+                                        <div class="info-icon mb-2">
+                                            <i class="fa fa-envelope theme"></i>
+                                        </div>
+                                        <div class="info-content ps-4">
+                                            <h3>Email Address</h3>
+                                            <p class="m-0">{{obj.0.primaryemail}}</p>
+                                            <p class="m-0">{{obj.0.secondaryemail}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact Ends -->
+
+    <!-- contact starts -->
+    <section class="contact-main pt-6 pb-60">
+        <div class="container">
+            <div class="contact-info-main mt-0">
+                <div class="row">
+                    <div class="col-lg-10 col-offset-lg-1 mx-auto">
+                        <div class="contact-info ">
+                          
+                          
+                            <div id="contact-form1" class="contact-form">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-6">
+                                        
+                                        <div id="contactform-error-msg"></div>
+
+                                        <form method="post" action="{% url 'contact' %}" name="contactform2" id="contactform2">
+                                            {% csrf_token %}
+                                            <div class="form-group mb-2">
+                                                <input type="text" name="first_name" class="form-control" id="fullname" placeholder="First Name">
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <input type="text" name="last_name" class="form-control" id="llastname" placeholder="Last Name">
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <input type="email" name="email"  class="form-control" id="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <input type="text" name="phone" class="form-control" id="phnumber" placeholder="Phone">
+                                            </div>
+                                            <div class="textarea mb-2">
+                                                <textarea name="comments" placeholder="Enter a message"></textarea>
+                                            </div>
+                                            <div class="comment-btn text-center">
+                                                <input type="submit" class="nir-btn"  value="Send Message">
+                                            </div>
+                                        </form>
+
+                                        {% if messages %}
+                                        <div class="messages mt-3">
+                                            {% for message in messages %}
+                                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                                                {{ message }}
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="map rounded overflow-hiddenb rounded mb-md-4">
+                                            <div style="width: 100%">
+                                                <iframe height="500" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(mangal%20bazar)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact Ends -->
+
+    {% endblock %}

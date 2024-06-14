@@ -1,0 +1,238 @@
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .trending .trend-item .trend-meta .package-meta ul li, .trending .trend-item1 .trend-meta .package-meta ul li, .trending .trend-item2 .trend-meta .package-meta ul li {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+  .slicknav_nav {
+    height: 325px !important;
+  }
+  .about-section {
+    margin-top: 25%;
+}
+
+.form-main .form-content {
+  width: 100% !important;
+
+}
+.input-box label
+{
+    font-size: 11px;
+}
+
+.dropdown_passenger_area button
+{
+  font-size: 14px;
+}
+
+.flight_Search_boxed input
+{
+  font-size: 14px;
+}
+}
+/* Portrait tablets and small desktops */
+@media (max-width: 991px) {
+  .trending .trend-item .trend-meta .package-meta ul li, .trending .trend-item1 .trend-meta .package-meta ul li, .trending .trend-item2 .trend-meta .package-meta ul li {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+}
+@media (max-width: 820px) {
+  .about-section {
+    padding: 30px 0;
+  }
+  .trending .trend-item .trend-meta .package-meta ul li, .trending .trend-item1 .trend-meta .package-meta ul li, .trending .trend-item2 .trend-meta .package-meta ul li {
+    font-size: 12px !important;
+  }
+  .pt-10, .py-10 {
+    padding-top: 3rem !important;
+  }
+  footer .footer-copyright .copyright-inner .copyright-text {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .header_menu .navbar.navbar-default {
+    background: #fff !important;
+  }
+  .slicknav_nav {
+    height: 405px !important;
+  }
+  .trend-item1 {
+    margin-bottom: 20px;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 30px 0;
+  }
+  .trending .trend-item .trend-meta .package-meta ul li, .trending .trend-item1 .trend-meta .package-meta ul li, .trending .trend-item2 .trend-meta .package-meta ul li {
+    font-size: 12px !important;
+  }
+  .pt-10, .py-10 {
+    padding-top: 3rem !important;
+  }
+  footer .footer-copyright .copyright-inner .copyright-text {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .header_menu .navbar.navbar-default {
+    background: #fff !important;
+  }
+  .slicknav_nav {
+    height: 405px !important;
+  }
+  .trend-item1 {
+    margin-bottom: 20px;
+  }
+
+  .theme_search_form_area {
+    box-shadow: 4px 14px 28px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    margin: -130px 20px;
+    width: 95%;
+    padding-bottom: 60px !important;
+}
+
+.flight_Search_boxed
+{
+  margin-bottom: 30px;
+}
+
+.flight_Search_boxed input
+{
+  font-size: 15px;
+}
+}
+@media (max-width: 767px) {
+
+
+  footer .button__whatsapp {
+    position: fixed;
+    right: 20px;
+  }
+  .main_header_area .header-content {
+    display: none;
+  }
+  .header_menu .navbar.navbar-default {
+    background: #fff !important;
+  }
+  .about-img {
+    margin-bottom: 30px;
+  }
+  .trend-image {
+    margin-bottom: 20px;
+  }
+  .slicknav_nav {
+    height: auto !important;
+  }
+  .slicknav_nav a {
+    padding: 15px 15px !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+  .trending .trend-item .trend-meta, .trending .trend-item1 .trend-meta, .trending .trend-item2 .trend-meta {
+    position: absolute;
+    top: -28px;
+    right: 0;
+    width: 100%;
+  }
+  .trending .trend-item .trend-meta .package-meta ul li, .trending .trend-item1 .trend-meta .package-meta ul li, .trending .trend-item2 .trend-meta .package-meta ul li {
+    font-size: 11px;
+  }
+  .testimonial .testimonial-item .details p, .testimonial .testimonial-item1 .details p {
+    font-size: 14px !important;
+  }
+  .author-title {
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+  }
+  section {
+    padding: 0;
+  }
+  .trend-content {
+    padding-top: 20px;
+  }
+  .trending h2 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  .btn-sec {
+    text-align: center;
+    float: none;
+    margin-top: 15px;
+  }
+  .form-title h3 {
+    font-size: 16px;
+  }
+  .comment-btn {
+    padding-bottom: 30px;
+  }
+
+  .theme_search_form_area
+  {
+    position: relative;
+    box-shadow: none;
+    background: #ddd;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .tour_search_form
+  {
+    display: none;
+  }
+
+  .form-main .form-content
+  {
+    margin: 0 !important;
+  }
+
+  li.mobile-number
+  {
+    display: none;
+  }
+
+  .banner-social-media
+  {
+    display: none;
+  }
+
+  .nav-tabs > li.nav-item button
+  {
+    padding: 10px;
+  }
+
+  .theme_search_form_tabbtn .nav-tabs .nav-link
+  {
+    font-size: 11px;
+  }
+  .logo-1
+  {
+    margin-bottom: 20px;
+  }
+  
+}
+/* Landscape phones and smaller */
+@media (max-width: 320px) {
+  .main_header_area .header-content {
+    display: none;
+  }
+  .header_menu .navbar.navbar-default {
+    background: #fff;
+  }
+
+.logo-1
+  {
+    margin-bottom: 20px;
+  }
+
+}

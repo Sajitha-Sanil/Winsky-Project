@@ -1,0 +1,134 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>Site Information </h2>
+                                {% if messages %}
+                                {% for message in messages %}
+                                  {% if message.tags == 'success' %}
+                                    <div class="alert alert-success" role="alert">
+                                      {{ message }}
+                                    </div>
+                                  {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger" role="alert">
+                                      {{ message }}
+                                    </div>
+                                  {% endif %}
+                                {% endfor %}
+                              {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>Add Email Information</h5>
+                                                 
+                                                    <form id="form4"method="post" enctype="multipart/form-data" action="{% url 'contact_emails' %}#success_tic">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Primary Email</label>
+                                                                <input type="email" class="form-control" id="primaryEmail"value="  {{ obj.0.primaryemail }}" name="primaryemail" placeholder="Enter primary email">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Secondary Email</label>
+                                                                <input type="email" class="form-control" id="secondaryEmail"value="{{ obj.0.secondaryemail }}" name="secondaryemail" placeholder="Enter secondary email" default="">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Reply To Email</label>
+                                                                <input type="email" class="form-control" id="replyToEmail"value="  {{ obj.0.replaytoemail }}" name="replaytoemail" placeholder="Enter reply to email">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary" type="submit" >Update</button>
+                                                            </div></div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>Add Contact Details</h5>
+                                                    <form id="form5" method="post" enctype="multipart/form-data" action="{% url 'update_contact_numbers' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Primary Number</label>
+                                                                <input type="text" class="form-control" value="{{ obj.0.primarycontactnumber }}" id="primaryContactNumber" name="primary_contact_number">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Secondary Number</label>
+                                                                <input type="text" class="form-control" value="{{ obj.0.secondarycontactnumber }}" id="secondaryContactNumber" name="secondary_contact_number">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Tertiary  Number</label>
+                                                                <input type="text" class="form-control" value="{{ obj.0.tertiarycontactnumber }}" id="tertiaryContactNumber" name="tertiary_contact_number">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary" type="submit" >Update</button>
+                                                            </div></div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+{% endblock %}

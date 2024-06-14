@@ -1,0 +1,241 @@
+{% extends 'index.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+
+
+
+ {% block content %}
+
+    <!-- BreadCrumb Starts -->  
+    <section class="breadcrumb-main pb-25 pt-25" style="background-image: url({{dir}}assets/images/inner-banner.jpg);">
+        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url({{dir}}assets/images/shape8.png);"></div>
+        <div class="breadcrumb-outer">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="mb-3">OUR PACKAGE</h1>
+                    <p class="pt-1 white">Begin Extraordinary Journeys with Our Exclusive Travel Packages.</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="dot-overlay"></div>
+    </section>
+    <!-- BreadCrumb Ends --> 
+
+    <section class="trending pt-6 pb-0 bg-lgrey">
+        <div class="container">
+            <div class="recent-articles-inner">
+                <div class="row">
+                <div class="col-lg-12 col-md-12">
+                <div class="trend-item box-shadow bg-white mb-4 rounded">
+                <div class="trend-image">
+                    {% if current_package.image %}
+                    <img src="{{current_package.image.url}}">
+                    {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                </div>
+                <div class="trend-content-main package-datils-sec p-4">
+                  <div class="row">
+                   <div class="col-lg-5 col-md-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="box-details">
+                                <h4>per Head :$ {{current_package.rate}} </h4>
+                                <p><i class="fas fa-user-friends themecolor1"></i> 5 person</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="box-details">
+                                <h4>Days </h4>
+                                <p><i class="icon-calendar themecolor1"></i> {{current_package.days}}/{{current_package.nights}} Night</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                   </div>
+                   <div class="col-lg-7 col-md-7">
+                    <div class="content-sec">
+                        <h4>Add Option</h4>
+
+                        <div class="selection-option float-left" >
+                            <form>
+
+  <input type="radio" id="hotel" name="fav_language" value="hotel">
+  <label for="javascript">hotel</label>
+<input type="radio" id="rent" name="fav_language" value="bike">
+  <label for="javascript">rent bike</label>
+<input type="radio" id="Insurance" name="fav_language" value="Insurance">
+  <label for="Insurance">Insurance</label>
+<input type="radio" id="Tour Guide" name="fav_language" value="Tour Guide">
+  <label for="Tour Guide">Tour Guide</label>
+</form> 
+                        </div>
+                        <div class="btn-sec float-right mtop-11">
+                            <a href="#" class="nir-btn white">Book Now</a>
+                        </div>
+                     
+                    </div>
+                   
+
+                     
+                   </div>
+                  
+                  </div>
+                
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title mb-6 w-50 mx-auto text-center">
+                <h2 class="mb-1">Our <span class="theme">Gallery</span></h2>
+            </div>
+            <div class="row">
+                
+                <div class="col-lg-6 col-md-6">
+                   
+                    <div class="row">
+                        {% if current_package.image1.all %}
+                        {% for image in current_package.image1.all %}
+                      
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            
+                               
+                            
+                            <div class="gallery-item mb-4 rounded overflow-hidden">
+                        
+                         
+                                <div class="gallery-image">
+                                   
+                                    <img src="{{ image.file.url }}" alt="image">
+                                   
+                                </div>
+                              
+                            </div>
+                           
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                          <p>No {{dir}}assets/images available</p>
+                        {% endif %}
+                    
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="galelry-deatils-sec">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-3">
+                                    <div class="block-content box-shadow bg-white p-4 rounded">
+                                        <h4>Famous Places</h4>
+                                        <p>{{current_package.famous_place}}</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6  mb-3">
+                                    <div class="block-content box-shadow bg-white p-4 rounded">
+                                        <h4>City Visit</h4>
+                                        <p>{{current_package.city_visit}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="block-content box-shadow bg-white p-4 rounded">
+                                        <h4>Rooms</h4>
+                                        <p>{{current_package.rooms}}</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="block-content box-shadow bg-white p-4 rounded">
+                                        <h4>Food</h4>
+                                        <p>{{current_package.food}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    {% if similar_packages %}
+    <section class="trending pt-6 pb-0 bg-lgrey">
+        <div class="container">
+            <div class="row">
+                <h2 class="mb-1">Similar Package</h2>
+                <p class="pt-1 pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+            <div class="row">
+                
+                    {% for similar_package in similar_packages %}
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item box-shadow rounded bg-white">
+                        <div class="trend-image position-relative">
+                            <img src="{{ similar_package.image.url }}" alt="image">
+                            <div class="package-price">
+                                <h6>
+                                    <span>${{ similar_package.rate }} </span> / per person
+                                </h6>
+                            </div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2">
+                                <div class="package-meta text-center">
+                                    <ul>
+                                       <li>
+                                          <i class="far fa-calendar"></i>
+                                          {{similar_package.days}}D/{{similar_package.nights}}N
+                                       </li>
+                                       <li>
+                                          <i class="fas fa-user-friends"></i>
+                                          People: {{similar_package.people}}
+                                       </li>
+                                       <li>
+                                          <i class="fas fa-map-marker-alt"></i>
+                                          {{similar_package.country}}
+                                       </li>
+                                    </ul>
+                                 </div>
+                            </div>
+                            
+                            <h3 class="mb-1"><a href="#">{{similar_package.image_caption}}</a></h3>
+                            <div class="rating-main d-flex align-items-center pb-2">
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <span class="ms-2">(38)</span>
+                            </div>
+                            <p>{{similar_package.image_description}}</p>
+                            <div class="entry-meta">
+                                <div class="btn-wrap">
+                                    <a href="#" class="button-text width-12 text-right">Book Now<i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                      
+            </div>
+        </div>
+    </section>
+     
+    {% endif %}
+
+   
+  
+    {% endblock %}

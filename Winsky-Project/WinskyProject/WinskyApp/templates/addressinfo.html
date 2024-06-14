@@ -1,0 +1,108 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>Site Address Information </h2>
+                                {% if messages %}
+                                                    {% for message in messages %}
+                                                      {% if message.tags == 'success' %}
+                                                        <div class="alert alert-success" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% elif message.tags == 'error' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% endif %}
+                                                    {% endfor %}
+                                                  {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                               
+                                                    
+                                                    <form id="form4"method="post" enctype="multipart/form-data" action="{% url 'site_address_info' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Address Line 1</label>
+                                                                <input type="text" class="form-control" id="inputAddress1" name="address1" placeholder="1234 Main St" value="{{obj.0.address1}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label"> Address Line 2</label>
+                                                                <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor" value="{{obj.0.address2}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Country</label>
+                                                                <input type="text" class="form-control"name="country" id="inputCountry" value="{{obj.0.country}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">City/Province</label>
+                                                                <input type="text" class="form-control" id="inputCity" name="city"value="{{obj.0.city}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Zip Code</label>
+                                                                <input type="text" class="form-control" name="zipcode" id="inputZip"value="{{obj.0.zipcode}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary" type="submit" >Update</button>
+                                                            </div></div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask Pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+{% endblock %}

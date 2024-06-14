@@ -1,0 +1,213 @@
+{% extends 'index.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+
+
+
+ {% block content %}
+
+  <!-- Add jQuery and Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- BreadCrumb Starts -->  
+    <section class="breadcrumb-main pb-25 pt-25" style="background-image: url({{dir}}assets/images/inner-banner.jpg);">
+        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url({{dir}}assets/images/shape8.png);"></div>
+        <div class="breadcrumb-outer">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="mb-3">About Us</h1>
+                    <p class="pt-1 white">Embark on Unforgettable Adventures with Winsky Travel.</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="dot-overlay"></div>
+    </section>
+    <!-- BreadCrumb Ends --> 
+
+    <!-- about-us starts -->
+    <section class="about-us pt-6" style="background-image:url({{dir}}assets/images/background_pattern.png); background-position:bottom right;">
+        <div class="container">
+            <div class="about-image-box">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-lg-12 ps-4">
+                        <div class="about-content text-center text-lg-start">
+                           
+                            <h2 class="border-b mb-2 pb-1">Explore All Tour of the world with us.</h2>
+                            <p class="mb-2 pb-2">At Winsky Travel, we believe every journey is a story waiting to be told. With a passion for exploration and a commitment to excellence, we curate extraordinary travel experiences that resonate with your desires. From breathtaking landscapes to cultural immersion, our expert team crafts seamless itineraries that transcend expectations. Our dedication to personalized service ensures that your travel dreams come to life, creating memories that last a lifetime. Join us in exploring the world's wonders, one unforgettable adventure at a time.</p>
+                           
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="our-vision">
+                                <div class="icon-block">
+                                    <h4 class="mb-2 pb-1"> <img src="{{dir}}assets/images/vision-icon.png"> Our Vision</h4>
+                                </div>
+                                <div class="content-block">
+                                    <p class="mb-2 pb-2">At Winsky Travel, our vision is to redefine the art of travel, transforming it into a tapestry of cherished memories and inspiring journeys. We aim to be the catalyst that sparks wanderlust and ignites a sense of wonder in every traveller's heart. With a commitment to innovation, authenticity, and sustainability, we strive to create meaningful connections between travellers and the destinations they explore. Our vision is to be the guiding star that leads you to new horizons, unveiling the beauty and diversity of the world while fostering a deep appreciation for the cultures that enrich it.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="our-vision">
+                                <div class="icon-block">
+                                    <h4 class="mb-2 pb-1"> <img src="{{dir}}assets/images/mission-icon.png"> Our Mission</h4>
+                                </div>
+                                <div class="content-block">
+                                    <p class="mb-2 pb-2">Our mission is to redefine travel by curating exceptional experiences that resonate with the spirit of adventure. We're committed to going beyond the expected, offering personalized service that ensures each journey is tailored to fulfil dreams and create lifelong memories. We embrace sustainability and responsible travel practices, aiming to impact the destinations we explore positively. Through innovation and dedication, we strive to inspire a sense of wonder and appreciation for the world's diversity, fostering a global community of passionate travellers united by the love of discovery.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="white-overlay"></div>
+    </section>
+    <!-- about-us ends -->
+
+    <section>
+         <!-- Counter -->
+         <div class="container">
+            <div class="counter-main counter-bg mt-10">
+                <div class="counter p-4 pb-0 box-shadow bg-theme rounded mt-minus white">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                            <div class="counter-item border-end pe-4">
+                                <div class="counter-content text-center">
+                                    <img src="{{dir}}assets/images/counter-icon/icon-1.png"/ class="pb-1">
+                                    <h2 class="value mb-0 white">20</h2>
+                                    <span class="m-0">Our Travel</span>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                            <div class="counter-item border-end pe-4 text-center">
+                                <div class="counter-content">
+                                    <img src="{{dir}}assets/images/counter-icon/icon-2.png"/ class="pb-1">
+                                    <h2 class="value mb-0 white">530</h2>
+                                    <span class="m-0">Our Hotels</span>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                            <div class="counter-item border-end pe-4 text-center">
+                                <div class="counter-content">
+                                    <img src="{{dir}}assets/images/counter-icon/icon-4.png"/ class="pb-1">
+                                    <h2 class="value mb-0 white">850</h2>
+                                    <span class="m-0">Happy Clients</span>
+                                </div>
+                            </div>    
+                        </div>
+
+                       
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                            <div class="counter-item text-center">
+                                <div class="counter-content">
+                                    <img src="{{dir}}assets/images/counter-icon/icon-5.png"/ class="pb-1">
+                                    <h2 class="value mb-0 white">320</h2>
+                                    <span class="m-0">Award Winning</span>
+                                </div>
+                            </div>    
+                        </div>
+
+
+                    </div>
+                </div> 
+            </div>
+</div>
+          <!-- End Counter -->
+    </section>
+
+   
+ <!-- About detail Start -->
+ <section class="faq-main pb-6 pt-6">
+    <div class="container">
+        <div class="section-title mb-6 text-center w-75 mx-auto">
+           
+            <h2 class="mb-1">FAQ <span class="theme">Navigating your Queries</span></h2>
+            <p>Clearing Your Path to Travel: Comprehensive Answers to Frequently Asked Questions</p>
+        </div>
+        <div class="faq-accordian">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 mb-4">
+                    <div class="accrodion-grp faq-accrodion" data-grp-name="faq-accrodion1">
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>Who are we?</h5>
+                            </div>
+                            <div class="accrodion-content" style="display: block;">
+                                <div class="inner">
+                                    <p>Our commitment to personalized service, sustainable travel practices, and creating meaningful connections with destinations sets us apart. From crafting tailor-made itineraries to offering immersive cultural experiences, Winsky Travel is your partner in unlocking the wonders of travel and making each journey a cherished memory.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>How do I plan my dream journey with Winsky Travel?</h5>
+                            </div>
+                            <div class="accrodion-content" style="display: none;">
+                                <div class="inner">
+                                    <p>It's easy! Start by exploring our range of curated travel experiences on our website. Once you've found the trip that resonates with you, click the "Book Now" button or contact our dedicated team for personalized assistance.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>What sets Winsky Travel apart from other travel agencies?</h5>
+                            </div>
+                            <div class="accrodion-content" style="display: none;">
+                                <div class="inner">
+                                    <p>We believe in crafting journeys beyond the ordinary at Winsky Travel. Our team of expert travel advisors’ curates unique experiences, ensures personalized service, and focuses on sustainability, creating trips that are not only unforgettable but also responsible and enriching.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>How do you ensure the safety and security of travellers during their journeys?</h5>
+                            </div>
+                            <div class="accrodion-content" style="display: none;">
+                                <div class="inner">
+                                    <p>Traveler safety is our top priority. We partner with reputable local guides and accommodations and closely monitor travel advisories. Our team provides 24/7 support, and we offer travel insurance options to provide added peace of mind.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>Can Winsky Travel help with special requests or customized itineraries?</h5>
+                            </div>
+                            <div class="accrodion-content" style="display: none;">
+                                <div class="inner">
+                                    <p>Absolutely! We specialize in crafting tailor-made journeys that match your interests, preferences, and schedule. Whether you're celebrating a milestone, seeking a unique adventure, or planning a group trip, our team will work with you to design a personalized itinerary that exceeds your expectations.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About detail Ends -->   
+   
+  
+<!-- Implement the Accordion JavaScript -->
+<script>
+    $(document).ready(function () {
+      $('.accrodion-title').click(function () {
+        $(this).toggleClass('active');
+        $(this).next('.accrodion-content').slideToggle();
+      });
+    });
+  </script>
+{% endblock %}

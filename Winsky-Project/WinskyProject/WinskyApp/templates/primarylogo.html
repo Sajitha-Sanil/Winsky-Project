@@ -1,0 +1,126 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %} 
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>Site Information </h2>
+                                {% if messages %}
+                                                    {% for message in messages %}
+                                                      {% if message.tags == 'success' %}
+                                                        <div class="alert alert-success" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% elif message.tags == 'error' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% endif %}
+                                                    {% endfor %}
+                                                  {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>Primary Information</h5>
+                                                    
+                                                    <form id="form1" method="post" enctype="multipart/form-data" action="{% url 'site_primary_info' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteNameInput">Site Name</label>
+                                                                   <input type="text" class="form-control" name="sitename" placeholder="Enter Your Site Name" value="{{obj.0.sitename}}">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteDescriptionInput">Site Description</label>
+                                                                <textarea class="form-control" id="siteDescriptionInput" name="sitedescription" rows="6" placeholder="Enter Site Description">{{ obj.0.sitedescription }}</textarea>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>Add Logo & Favicon</h5>
+                                                    <form id="form3" method="post" enctype="multipart/form-data" action="{% url 'site_logo_favicon' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3 ">
+                                                                <label class="form-label">Logo</label>
+                                                                <div class="custom-file mt-3">
+                                                                  <input type="file" class=" form-control custom-file-input" id="siteLogo" name="sitelogo"value="">
+                                                                  <label class="custom-file-label" for="siteLogo" placeholder="Drop content here"> {{obj.0.sitelogo}}</label>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3 ">
+                                                                <label class="form-label">Favicon</label>
+                                                                <div class="custom-file mt-3 ">
+                                                                  <input type="file" class="form-control custom-file-input" id="browsersiteLogo" name="browsersitelogo" value="">
+                                                                  <label class="custom-file-label" for="browsersiteLogo " placeholder="Drop content here">{{obj.0.browsersitelogo}}</label>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row ">
+                                                            <div class="col-sm-12 text-end ">
+                                                                <button class="btn btn-secondary mt-2" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+
+        {% endblock %}

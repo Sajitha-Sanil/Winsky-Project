@@ -1,0 +1,146 @@
+{% extends 'dashboard.html'%}
+{% load static %}
+{% get_static_prefix as dir %}
+{% block content %}
+<!-- End Sidebar Modal -->
+
+                <div class="dashboard-innerbox">
+                            <div class="inner-page-sec">
+                              <div class="description-sec">
+                                <h2>Site Information </h2>
+                                {% if messages %}
+                                                    {% for message in messages %}
+                                                      {% if message.tags == 'success' %}
+                                                        <div class="alert alert-success" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% elif message.tags == 'error' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                          {{ message }}
+                                                        </div>
+                                                      {% endif %}
+                                                    {% endfor %}
+                                                  {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>Social Media Links</h5>
+                                                    
+                                                    <form id="form1" method="post" enctype="multipart/form-data" action="{% url 'update_social_media_links' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteNameInput">Facebook:</label>
+                                                                <input type="text" class="form-control" id="facebookInput" placeholder="Enter Facebook URL" name="facebookurl" value="{{obj.0.facebookurl}}" >
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteDescriptionInput">Twitter:</label>
+                                                                <input type="text" class="form-control" id="twitterInput" placeholder="Enter Twitter URL" name="twitterurl" value="{{obj.0.twitterurl}}" >
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteDescriptionInput">Instagram:</label>
+                                                                <input type="text" class="form-control" id="instagramInput" placeholder="Enter Instagram URL" name="instagramurl" value="{{obj.0.instagramurl}}" >
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteDescriptionInput">Skype:</label>
+                                                                <input type="text" class="form-control" id="skypeInput" placeholder="Enter Skype URL" name="skypeurl" value="{{obj.0.skypeurl}}" >
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row"> 
+                                                            <div class="col-sm-12">
+                                                              <div class="mb-3">
+                                                                <label for="siteDescriptionInput">LinkedIn:</label>
+                                                                <input type="text" class="form-control" id="linkedinInput" placeholder="Enter LinkedIn URL" name="linkedinurl" value="{{obj.0.linkedinurl}}" >
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="row">
+                                                            <div class="col-sm-12 text-end">
+                                                                <button class="btn btn-secondary" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="inner-card">
+                                            <div class="inner-card-body">
+                                                <div class="product-info">
+                                                    <h5>  SEO Meta Tags</h5>
+                                                    <form id="form3" method="post" enctype="multipart/form-data" action="{% url 'update_seotags' %}">
+                                                      {% csrf_token %}
+                                                        <div class="product-group">
+                                                            <div class="row"> 
+                                                                <div class="col-sm-12">
+                                                                  <div class="mb-3">
+                                                                    <label for="siteDescriptionInput">Meta Keywords</label>
+                                                                    <input type="text" class="form-control" id="metaKeywords" name="metakeywords" placeholder="Enter meta keywords" value="{{ obj.0.metakeywords }}">
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                          
+                                                              <div class="row"> 
+                                                                <div class="col-sm-12">
+                                                                  <div class="mb-3">
+                                                                    <label for="siteDescriptionInput">Meta Description</label>
+                                                                    <textarea class="form-control" id="metaDescription" name="metadescription" rows="16" placeholder="Enter meta description">{{ obj.0.metadescription }}</textarea>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                         
+                                                          <div class="row ">
+                                                            <div class="col-sm-12 text-end ">
+                                                                <button class="btn btn-secondary mt-2" type="submit" >Update</button>
+                                                            </div>
+                                                        </div>
+                                                      </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+                                <div class="row bg-row">
+                                    <div class="col-md-5 col-lg-5 pocket-help">
+                                        <h2>Ask pocket Friendly for Help 24/7</h2>
+                                        <h6>Get In Touch : </h6>
+                                      
+                                        <div class="number-block"> <a href="tel:+ +971 585893348"> +971585893348 </a>  
+                                           </div>
+                                        </div>
+                                </div>
+                                </div>
+                          
+              
+                   
+              </div>
+              </div>
+			</div>
+		</section>
+		<!-- End Sign In Area -->
+
+        {% endblock %}
