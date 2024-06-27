@@ -13,7 +13,7 @@ Database: SQLite (can be configured for other databases supported by Django)
 Integration: WhatsApp API, Email API
 
 # How to Use:
-Clone the repository: git clone https://github.com/your-username/winsky-travel-agency.git
+Clone the repository: git clone https://github.com/Sajitha-Sanil/winsky-travel-agency.git
 Install dependencies: pip install -r requirements.txt
 Set up Django environment variables and database configurations.
 Run migrations: python manage.py migrate
